@@ -1,4 +1,4 @@
-## Text Analysis
+# Text Analysis
 
 ## Bag of words
 ### Text cleaning up before apply bag of words:
@@ -27,3 +27,22 @@
             * "Porter Stremmer" by Martin Porter in 1980
             * Stemmers have been written for many languages
         * Other options include machine learning (train algorithms to recognize the roots of the words) and combinations of the above.
+
+### R examples:
+```
+corpus = Corpus(VectorSource(tweets$Tweet))
+corpus = tm_map(corpus, tolower)
+corpus = tm_map(corpus, PlainTextDocument)
+
+corpus = tm_map(corpus, removePunctuation)
+
+corpus = tm_map(corpus, removeWords, c("apple", stopwords("english")))
+
+corpus = tm_map(corpus, stemDocument)
+```
+
+And works like 
+
+`'I have to say, Apple has by far the best customer care service I have ever received! @Apple @AppStore'`
+will become:
+`say far best custom care servic ever receiv appstor`
