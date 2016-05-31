@@ -1,6 +1,6 @@
 *.csv
 .ipynb_checkpoints
-
+Icon
 # History files
 .Rhistory
 .Rapp.history
